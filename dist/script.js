@@ -19375,9 +19375,18 @@ var modals = function modals() {
 
   function showModalByTime(selector, time) {
     setTimeout(function () {
-      document.querySelector(selector).style.display = 'block';
-      document.body.style.overflow = 'hidden';
-      document.body.style.marginRight = "".concat(scroll, "px");
+      var display;
+      document.querySelectorAll('[data-modal]').forEach(function (item) {
+        if (getComputedStyle(item).display != 'none') {
+          display = true;
+        }
+      });
+
+      if (!display) {
+        document.querySelector(selector).style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        document.body.style.marginRight = "".concat(scroll, "px");
+      }
     }, time);
   }
 
@@ -19386,7 +19395,7 @@ var modals = function modals() {
   bindModal('.popup_calc_btn', '.popup_calc', '.popup_calc_close');
   bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false);
   bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
-  showModalByTime('.popup', 60000);
+  showModalByTime('.popup_engineer', 60000);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);
