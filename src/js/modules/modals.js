@@ -84,6 +84,7 @@ const modals = () => {
                 });
 
                 if (!display) {
+                    scroll = calcScroll();
                     document.querySelector(selector).style.display = 'block';
                     document.body.style.overflow = 'hidden';
                     document.body.style.marginRight = `${scroll}px`;

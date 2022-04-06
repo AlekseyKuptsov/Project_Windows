@@ -46,9 +46,11 @@ const forms = (state) => {
             postData('assets/server.php', formData, item)
                 .then(res => {
                     console.log(res);
+                    statusMessageRemove();
                     statusMessage(item, message.success);
                 })
                 .catch(() => {
+                    statusMessageRemove();
                     statusMessage(item, message.failure);
                 })
                 .finally(() => {
