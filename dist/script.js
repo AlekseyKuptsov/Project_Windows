@@ -19189,8 +19189,10 @@ var forms = function forms(state) {
 
       postData('assets/server.php', formData, item).then(function (res) {
         console.log(res);
+        Object(_statusMessage__WEBPACK_IMPORTED_MODULE_6__["statusMessageRemove"])();
         Object(_statusMessage__WEBPACK_IMPORTED_MODULE_6__["statusMessage"])(item, message.success);
       }).catch(function () {
+        Object(_statusMessage__WEBPACK_IMPORTED_MODULE_6__["statusMessageRemove"])();
         Object(_statusMessage__WEBPACK_IMPORTED_MODULE_6__["statusMessage"])(item, message.failure);
       }).finally(function () {
         clearInputs();
